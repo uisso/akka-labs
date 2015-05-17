@@ -33,14 +33,32 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<version.junit>4.8</version.junit>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+		<version.junit>4.8.1</version.junit>
+		<akka-actor.version>2.3.10</akka-actor.version>
+		<scala.version>2.11</scala.version>
+		<scala.version.minor>.6</scala.version.minor>		
 	</properties>
 
 	<modules>
 		<module>akka-java</module>
+		<module>akka-scala</module>
 	</modules>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-actor_${scala.version}</artifactId>
+			<version>${akka-actor.version}</version>
+			<exclusions>
+				<exclusion>
+					<!-- make sure wrong scala version is not pulled in -->
+					<groupId>org.scala-lang</groupId>
+					<artifactId>scala-library</artifactId>
+				</exclusion>
+			</exclusions>			
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

@@ -8,19 +8,6 @@
 	</parent>
 	<artifactId>akka-java</artifactId>
 
-	<properties>
-		<version.akka-actor>2.3.10</version.akka-actor>
-	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>com.typesafe.akka</groupId>
-			<artifactId>akka-actor_2.10</artifactId>
-			<version>${version.akka-actor}</version>
-		</dependency>
-	</dependencies>
-
-
 	<build>
 		<plugins>
 			<plugin>
@@ -29,8 +16,8 @@
 				<version>3.3</version>
 				<configuration>
 					<encoding>${project.build.sourceEncoding}</encoding>
-					<source>${java.source}</source>
-					<target>${java.target.jdk}</target>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
 					<compilerArgument>-proc:none</compilerArgument>
 				</configuration>
 				<inherited>true</inherited>
